@@ -1,5 +1,11 @@
 import React from "react";
-import "./App.css";
+import InputField from "./components/InputField";
+
 export default function App() {
-  return <>Going to start with Redux</>;
+  return (
+    <>
+      Going to start with Redux
+      <InputField />
+    </>
+  );
 }
