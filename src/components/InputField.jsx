@@ -8,9 +8,11 @@ const InputField = () => {
   const todos = useSelector((state) => state.todos);
   const editTodoId = useSelector((state) => state.editingTodoId);
   useEffect(() => {
-    const todo = todos.find((i) => i.id == editTodoId);
-    if (editTodoId) {
-      setInput(todo.text);
+    if (todos.length > 0) {
+      const todo = todos.find((i) => i.id == editTodoId);
+      if (editTodoId) {
+        setInput(todo.text);
+      }
     } else {
       setInput("");
     }
