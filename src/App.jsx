@@ -1,11 +1,15 @@
 import React from "react";
 import InputField from "./components/InputField";
+import TodoList from "./components/TodoList";
 
 export default function App() {
   return (
     <>
-      Going to start with Redux
-      <InputField />
+      <div className="text-center pt-10">
+        <h1 className="text-2xl font-semibold">Going to start with Redux</h1>
+        <InputField />
+        <TodoList />
+      </div>
     </>
   );
 }
