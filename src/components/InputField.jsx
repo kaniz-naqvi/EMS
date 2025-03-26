@@ -1,13 +1,28 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodo } from "../store/todoSlice";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo, editTodo } from "../store/todoSlice";
 
 const InputField = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos);
+  const editTodoId = useSelector((state) => state.editingTodoId);
+  useEffect(() => {
+    const todo = todos.find((i) => i.id == editTodoId);
+    if (editTodoId) {
+      setInput(todo.text);
+    } else {
+      setInput("");
+    }
+  }, [editTodoId]);
+
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addTodo(input));
+    if (editTodoId) {
+      dispatch(editTodo({ id: editTodoId, newText: input }));
+    } else {
+      dispatch(addTodo(input));
+    }
     setInput("");
   }
   return (
@@ -22,9 +37,11 @@ const InputField = () => {
         />
         <button
           type="submit"
-          className="bg-blue-700 text-white rounded-md lg:ms-2 p-3 mt-2 lg:w-auto w-[90%]"
+          className={`text-white rounded-md lg:ms-2 p-3 mt-2 lg:w-auto w-[90%] ${
+            editTodoId ? "bg-green-700" : "bg-blue-700"
+          }`}
         >
-          Add +
+          {editTodoId ? "Update" : "Add +"}
         </button>
       </form>
     </>

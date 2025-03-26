@@ -1,6 +1,7 @@
 import React from "react";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
         <h1 className="text-2xl font-semibold">Going to start with Redux</h1>
         <InputField />
         <TodoList />
+        <Footer />
       </div>
     </>
   );
