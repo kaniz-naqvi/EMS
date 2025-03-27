@@ -22,7 +22,7 @@ const LoginPage = () => {
     <>
       <form
         onSubmit={(e) => handleLogIn(e)}
-        className="flex flex-col items-center gap-5 min-h-[82dvh]"
+        className="flex flex-col items-center gap-5 min-h-[83dvh]"
       >
         <input
           type="text"
