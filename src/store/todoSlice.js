@@ -1,4 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import logger from "./logger";
 
 const initialState = {
   todos: [],
@@ -22,6 +23,7 @@ const todoSlice = createSlice({
       if (todo) {
         todo.text = newText;
       }
+      setEditingTodoId(null);
     },
     removeTodo: (state, action) => {
       const id = action.payload;
@@ -31,6 +33,7 @@ const todoSlice = createSlice({
       state.editingTodoId = action.payload;
     },
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export const { addTodo, removeTodo, editTodo, setEditingTodoId } =
