@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, editTodo } from "../store/todoSlice";
+import { addTodo, editTodo, setEditingTodoId } from "../store/todoSlice";
 
 const InputField = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos);
-  const editTodoId = useSelector((state) => state.editingTodoId);
+  const todos = useSelector((state) => state.todos.todos);
+  const editTodoId = useSelector((state) => state.todos.editingTodoId);
   useEffect(() => {
     if (todos.length > 0) {
       const todo = todos.find((i) => i.id == editTodoId);
+      console.log("todo", todo);
       if (editTodoId) {
         setInput(todo.text);
       }
@@ -22,6 +23,7 @@ const InputField = () => {
     e.preventDefault();
     if (editTodoId) {
       dispatch(editTodo({ id: editTodoId, newText: input }));
+      dispatch(setEditingTodoId(null));
     } else {
       dispatch(addTodo(input));
     }
