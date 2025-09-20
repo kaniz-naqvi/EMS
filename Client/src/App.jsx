@@ -1,18 +1,22 @@
 import React from "react";
-import {
-  PrimaryButton,
-  PrimaryOutlinedButton,
-  SecondaryButton,
-  SecondaryOutlinedButton,
-} from "./components/Atoms/Buttons/Buttons";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import { allowedRoutes } from "./utils/routes/routes";
+import { LAYOUT_DASHBOARD } from "./utils/routes/route-paths";
 
 export default function App() {
+  const routes = allowedRoutes();
+  const dashboardLinks = routes.filter((r) => r.layout === LAYOUT_DASHBOARD);
+  const navLinks = routes.filter((r) => r.showInNavLinks);
+
   return (
-    <div className="flex flex-col gap-4 items-center justify-center min-h-screen bg-background text-text">
-      <PrimaryButton>Primary</PrimaryButton>
-      <PrimaryOutlinedButton>Outlined Primary</PrimaryOutlinedButton>
-      <SecondaryButton>Secondary</SecondaryButton>
-      <SecondaryOutlinedButton>Outlined Secondary</SecondaryOutlinedButton>
-    </div>
+    <Routes>
+      <Route path="/" element={<Dashboard navLinks={navLinks} />}>
+        {dashboardLinks?.map((r) => {
+          const Component = r.view;
+          return <Route key={r.path} path={r.path} element={<Component />} />;
+        })}
+      </Route>
+    </Routes>
   );
 }
