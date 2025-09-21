@@ -1,8 +1,11 @@
-import Home from "@/Pages/Home/Home";
+import { lazy } from "react";
 import { getIcon } from "../helpers/iconsHelper";
 import { LAYOUT_DASHBOARD, urls } from "./route-paths";
 import { URL_Name } from "./url-names";
-import Projects from "@/Pages/Projects/Projects";
+
+// components
+const Home = lazy(() => import("@/Pages/Home/Home"));
+const Projects = lazy(() => import("@/Pages/Projects/Projects"));
 
 export const allRoutes = [
   {

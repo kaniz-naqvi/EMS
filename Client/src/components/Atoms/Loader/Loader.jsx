@@ -16,8 +16,8 @@ const Loader = ({ isLoading = true }) => {
     const textCount = letters.length;
     let position = -20;
     let direction = 1;
-    const speed = 2;
-    const max = 250;
+    const speed = 3;
+    const max = 290;
 
     const animate = () => {
       if (!spinner || letters.some((l) => !l)) {
@@ -51,7 +51,7 @@ const Loader = ({ isLoading = true }) => {
   return (
     <div
       className="fixed inset-0 flex flex-col items-center justify-center z-[9999]"
-      style={{ backgroundColor: `${colors.background}E6` }}
+      style={{ backgroundColor: `${colors.background}` }}
     >
       {isLoading && (
         <div className="flex w-max-content relative items-center justify-between">
