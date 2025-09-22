@@ -3,9 +3,9 @@ const getBrowserTheme = () => {
   if (typeof window !== "undefined" && window.matchMedia) {
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? { background: "#202124", text: "#FAFAFA" } // dark bg, light text
-      : { background: "#FAFAFA", text: "#202124" }; // light bg, dark text
+      : { background: "#FFFFFF", text: "#202124" }; // light bg, dark text
   }
-  return { background: "#FAFAFA", text: "#202124" }; // fallback
+  return { background: "#FFFFFF", text: "#202124" }; // fallback
 };
 
 const browserTheme = getBrowserTheme();

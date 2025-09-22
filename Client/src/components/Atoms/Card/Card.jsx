@@ -8,7 +8,7 @@ const Card = ({
 }) => {
   return (
     <div
-      className={`h-auto p-3 ${rounded} ${heightAndWidth} shadow-2xl drop-shadow-[0_4px_10px_rgba(255,255,255,0.2)]`}
+      className={`h-auto p-4 px-8 ${rounded} ${heightAndWidth} shadow-2xl drop-shadow-[0_4px_10px_rgba(255,255,255,0.2)]`}
       style={{ background: background }}
     >
       {children}

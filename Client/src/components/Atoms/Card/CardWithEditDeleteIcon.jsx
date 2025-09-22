@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import { getIcon } from "@/utils/helpers/iconsHelper";
+import IconContainerButton from "../Buttons/IconContainerButton";
 
 const CardWithEditDeleteIcon = ({
   title,
@@ -77,22 +78,18 @@ const CardWithEditDeleteIcon = ({
           {showActions && (onEdit || onDelete) && (
             <div className="flex space-x-2">
               {onEdit && EditIcon && (
-                <button
+                <IconContainerButton
                   onClick={onEdit}
-                  className="p-2 rounded-full hover:bg-opacity-20 transition"
-                  style={{ backgroundColor: "rgba(0,0,0,0.1)" }}
-                >
-                  <EditIcon size={16} color={primaryColor} />
-                </button>
+                  IconComponent={EditIcon}
+                  primaryColor={primaryColor}
+                />
               )}
               {onDelete && DeleteIcon && (
-                <button
+                <IconContainerButton
                   onClick={onDelete}
-                  className="p-2 rounded-full hover:bg-opacity-20 transition"
-                  style={{ backgroundColor: "rgba(0,0,0,0.1)" }}
-                >
-                  <DeleteIcon size={16} color={primaryColor} />
-                </button>
+                  IconComponent={DeleteIcon}
+                  primaryColor={primaryColor}
+                />
               )}
             </div>
           )}

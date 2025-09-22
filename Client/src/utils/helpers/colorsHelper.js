@@ -1,15 +1,21 @@
-export const lightenColor = (color, percent) => {
-  const num = parseInt(color.replace("#", ""), 16);
-  const amt = Math.round(2.55 * percent);
-  const R = (num >> 16) + amt;
-  const G = ((num >> 8) & 0x00ff) + amt;
-  const B = (num & 0x0000ff) + amt;
-  return `#${(
-    0x1000000 +
-    (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
-    (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
-    (B < 255 ? (B < 1 ? 0 : B) : 255)
-  )
-    .toString(16)
-    .slice(1)}`;
+const OPACITY_MAP = {
+  5: "0D",
+  10: "1A",
+  20: "33",
+  30: "4D",
+  40: "66",
+  50: "80",
+  60: "99",
+  70: "B3",
+  80: "CC",
+  90: "E6",
+  100: "FF",
+};
+
+export const lightenColor = (color, opacity) => {
+  // Get opacity hex value
+  const opacityHex = OPACITY_MAP[opacity];
+
+  // Return color with opacity
+  return `${color}${opacityHex}`;
 };

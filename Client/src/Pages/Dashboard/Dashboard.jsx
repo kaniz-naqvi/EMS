@@ -8,14 +8,14 @@ const Dashboard = ({ navLinks }) => {
   return (
     <main
       style={{ background: colors.background, color: colors.text }}
-      className={`h-[100vh] w-full`}
+      className={`min-h-screen w-full`}
     >
-      <div className="flex w-full h-full gap-2">
-        <div className="w-28">
+      <div className="flex w-full gap-2">
+        <div className="w-28 flex-shrink-0 fixed h-full">
           <NavBar navLinks={navLinks} colors={colors} />
         </div>
 
-        <div className="overflow-y-auto w-[80%] m-3">
+        <div className="flex-grow ml-32 mt-3 mb-3">
           <Outlet />
         </div>
       </div>

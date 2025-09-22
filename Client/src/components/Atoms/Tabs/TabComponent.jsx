@@ -16,7 +16,7 @@ const TabComponent = ({
     switch (variant) {
       case "pill":
         return `${baseClasses} mx-2 rounded-full ${
-          isActive ? "" : "hover:bg-gray-800"
+          isActive ? "" : "hover:bg-[rgba(0,0,0,0.1)]"
         }`;
 
       case "underline":
@@ -28,12 +28,12 @@ const TabComponent = ({
 
       case "vertical":
         return `${baseClasses} text-left w-full ${
-          isActive ? "" : "hover:bg-gray-800"
+          isActive ? "" : "hover:bg-[rgba(0,0,0,0.1)]"
         }`;
 
       default: // default
         return `${baseClasses} rounded-tr-md rounded-tl-md flex-1 text-center ${
-          isActive ? `font-semibold` : "hover:bg-gray-800 "
+          isActive ? `font-semibold` : "hover:bg-[rgba(0,0,0,0.1)]"
         }`;
     }
   };
@@ -50,8 +50,8 @@ const TabComponent = ({
       };
     } else {
       return {
-        backgroundColor: lightenColor(primaryColor, -30),
-        color: lightenColor(primaryColor, 50),
+        backgroundColor: lightenColor(primaryColor, 10),
+        color: primaryColor,
         border: "none",
         ...(variant === "default" && { opacity: 0.9 }),
       };
@@ -100,7 +100,7 @@ const TabComponent = ({
     <div className={className}>
       <div
         className={`${
-          variant !== "pill" && "border-gray-500"
+          variant !== "pill" && "border-[rgba(0,0,0,0.1)]"
         } ${containerClasses()}`}
       >
         {variant === "vertical" ? (

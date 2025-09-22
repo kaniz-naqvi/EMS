@@ -2,6 +2,7 @@ import { useTheme } from "@/styles/theme";
 import React from "react";
 import Button from "../Buttons/Buttons";
 import { Check, Plus } from "lucide-react";
+import { lightenColor } from "@/utils/helpers/colorsHelper";
 
 const Modal = ({
   isOpen,
@@ -19,8 +20,9 @@ const Modal = ({
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+      className="fixed inset-0 flex items-center justify-center z-50"
       onClick={onClose}
+      style={{ background: lightenColor("#000000", 70) }}
     >
       <div
         className="rounded-xl shadow-xl w-full max-w-md mx-4"

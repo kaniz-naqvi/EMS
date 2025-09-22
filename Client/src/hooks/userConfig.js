@@ -15,80 +15,83 @@ that improve user experiences and solve real-world problems.`,
     textColor: "#222222",
   },
 
-  // ------------------- SECTIONS -------------------
+  // ------------------- SECTIONS (unified schema) -------------------
   sections: {
     education: [
       {
-        degree: "BS Computer Science",
-        institution: "Virtual University of Pakistan",
-        startYear: "2022",
-        endYear: "2026",
-        details:
+        title: "BSCS",
+        duration: "2022 – 2026",
+        description:
           "Focused on software engineering, algorithms, and modern web technologies.",
+        institution: "Virtual University of Pakistan",
       },
       {
-        degree: "Intermediate in Pre-Engineering",
+        title: "Intermediate in Pre-Engineering",
+        duration: "2020 – 2022",
+        description: "",
         institution: "Govt. Science College",
-        startYear: "2020",
-        endYear: "2022",
-      },
-    ],
-
-    certifications: [
-      {
-        name: "React Developer Certification",
-        issuer: "Meta",
-        year: "2023",
-        link: "https://coursera.org/cert/meta-react",
-      },
-      {
-        name: "Backend Development with Node.js",
-        issuer: "Udemy",
-        year: "2022",
-        link: "https://udemy.com/cert/nodejs",
       },
     ],
 
     experience: [
       {
-        role: "Frontend Developer",
-        company: "TechNova Solutions",
-        startDate: "Mar 2024",
-        endDate: "Present",
-        details:
+        title: "Frontend Developer",
+        duration: "Mar 2024 – Present",
+        description:
           "Working on React and Redux-based applications with Tailwind for styling. " +
           "Collaborated with backend teams to integrate REST APIs and improve performance.",
+        institution: "TechNova Solutions",
       },
       {
-        role: "Intern Web Developer",
-        company: "CodeCrafters",
-        startDate: "Jan 2023",
-        endDate: "Feb 2024",
-        details:
+        title: "Intern Web Developer",
+        duration: "Jan 2023 – Feb 2024",
+        description:
           "Assisted in building a company portfolio website using React and Express. " +
           "Optimized UI components for better performance and accessibility.",
+        institution: "CodeCrafters",
       },
     ],
 
-    skills: {
-      frontend: [
+    certifications: [
+      {
+        title: "React Developer Certification",
+        duration: "2023",
+        description: "",
+        institution: "Meta (Coursera)",
+      },
+      {
+        title: "Backend Development with Node.js",
+        duration: "2022",
+        description: "",
+        institution: "Udemy",
+      },
+    ],
+
+    awards: [],
+    volunteering: [],
+    publications: [],
+  },
+
+  // ------------------- SKILLS (separate table) -------------------
+  skills: [
+    {
+      category: "frontend",
+      items: [
         "React",
         "Redux Toolkit",
         "Tailwind CSS",
         "Bootstrap",
         "JavaScript",
       ],
-      backend: ["Node.js", "Express", "PostgreSQL", "Prisma"],
-      tools: ["Git", "VS Code", "Postman", "Figma"],
     },
+    {
+      category: "backend",
+      items: ["Node.js", "Express", "PostgreSQL", "Prisma"],
+    },
+    { category: "tools", items: ["Git", "VS Code", "Postman", "Figma"] },
+  ],
 
-    // Optional sections (user can add/remove)
-    awards: [],
-    volunteering: [],
-    publications: [],
-  },
-
-  // ------------------- PROJECTS (separate) -------------------
+  // ------------------- PROJECTS -------------------
   projects: [
     {
       name: "Amazon Clone",

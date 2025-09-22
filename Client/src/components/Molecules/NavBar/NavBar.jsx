@@ -21,7 +21,9 @@ const NavBar = ({ navLinks, colors }) => {
             return (
               <div
                 key={link.path}
-                className={`nav-link py-4 ${isActive ? "bg-[#80808020]" : ""}`}
+                className={`nav-link p-4 px-12 ${
+                  isActive ? "bg-[#80808020]" : ""
+                }`}
                 onClick={() => navigate(link.path)}
               >
                 <div>

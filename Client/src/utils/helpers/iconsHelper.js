@@ -6,6 +6,7 @@ import {
   Clock,
   FileText,
   Calendar,
+  Plus,
 } from "lucide-react";
 import { Folders, House } from "phosphor-react";
 
@@ -20,6 +21,7 @@ const iconList = {
   description: FileText,
   date: Calendar,
   duration: Clock,
+  plus: Plus,
 };
 
 export const getIcon = (icon) => {
