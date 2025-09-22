@@ -1,25 +1,47 @@
 import React, { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import { allowedRoutes } from "./utils/routes/routes";
-import { LAYOUT_DASHBOARD, LAYOUT_AUTH } from "./utils/routes/route-paths";
+import {
+  LAYOUT_DASHBOARD,
+  LAYOUT_AUTH,
+  urls,
+} from "./utils/routes/route-paths";
 import Loader from "./components/Atoms/Loader/Loader";
 import ProtectedRoute from "./utils/routes/ProtectedRoute";
 
 export default function App() {
   const routes = allowedRoutes();
+  const publicRedirectPath = LAYOUT_AUTH;
   const dashboardLinks = routes.filter((r) => r.layout === LAYOUT_DASHBOARD);
   const navLinks = routes.filter((r) => r.showInNavLinks);
-  const authLinks = routes.filter((r) => r.layout === LAYOUT_AUTH);
+  const authLinks = routes.filter((r) => r.layout === publicRedirectPath);
   const isAuth = true; // Replace with real
 
   return (
     <Routes>
+      {/* Redirect root "/" */}
+      <Route
+        path="/"
+        element={
+          <Navigate
+            to={
+              isAuth ? `${LAYOUT_DASHBOARD}/${urls.Home}` : publicRedirectPath
+            }
+            replace
+          />
+        }
+      />
+
       {/* Dashboard (protected) */}
       <Route
         path="/dashboard"
         element={
-          <ProtectedRoute isAuth={isAuth}>
+          <ProtectedRoute
+            Navigate={Navigate}
+            publicRedirectPath={publicRedirectPath}
+            isAuth={isAuth}
+          >
             <Dashboard navLinks={navLinks} />
           </ProtectedRoute>
         }

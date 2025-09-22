@@ -1,9 +1,6 @@
-import { Navigate } from "react-router-dom";
-import { LAYOUT_AUTH } from "./route-paths";
-
-const ProtectedRoute = ({ isAuth, children }) => {
+const ProtectedRoute = ({ isAuth, children, Navigate, publicRedirectPath }) => {
   if (!isAuth) {
-    return <Navigate to={LAYOUT_AUTH} replace />;
+    return <Navigate to={publicRedirectPath} replace />;
   }
   return children;
 };

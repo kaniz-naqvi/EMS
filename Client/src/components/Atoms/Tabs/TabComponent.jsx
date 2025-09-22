@@ -6,6 +6,7 @@ const TabComponent = ({
   primaryColor = "#0E6BA8",
   variant = "default", // 'default' | 'pill' | 'underline' | 'vertical'
   className = "",
+  grayBg,
 }) => {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -50,8 +51,7 @@ const TabComponent = ({
       };
     } else {
       return {
-        backgroundColor: lightenColor(primaryColor, 10),
-        color: primaryColor,
+        backgroundColor: lightenColor(primaryColor, 30),
         border: "none",
         ...(variant === "default" && { opacity: 0.9 }),
       };
@@ -100,8 +100,9 @@ const TabComponent = ({
     <div className={className}>
       <div
         className={`${
-          variant !== "pill" && "border-[rgba(0,0,0,0.1)]"
+          variant !== "pill" && !grayBg && "border-gray-500"
         } ${containerClasses()}`}
+        style={{ borderColor: grayBg }}
       >
         {variant === "vertical" ? (
           <div className="w-48 border-r" style={{ borderColor: primaryColor }}>

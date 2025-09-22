@@ -17,6 +17,7 @@ const Modal = ({
   const theme = useTheme();
 
   if (!isOpen) return null;
+  if (isOpen) document.body.style.overflowY = "hidden";
 
   return (
     <div
@@ -57,7 +58,7 @@ const Modal = ({
                   {confirmText}
                 </>
               ) : (
-                { confirmText }
+                confirmText
               )}
             </Button>
           </div>

@@ -1,18 +1,13 @@
 import React from "react";
 
-const IconContainerButton = ({
-  onClick,
-  IconComponent,
-  primaryColor,
-  className = "",
-}) => {
+const IconContainerButton = ({ onClick, IconComponent, background, icon }) => {
   return (
     <button
       onClick={onClick}
-      className={`p-2 rounded-full hover:bg-opacity-20 transition ${className}`}
-      style={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+      className={`p-2 rounded-full  bg-[#ECECEC] hover:bg-opacity-20 transition`}
+      style={{ backgroundColor: background }}
     >
-      {IconComponent && <IconComponent size={16} color={primaryColor} />}
+      {IconComponent && <IconComponent size={16} color={icon} />}
     </button>
   );
 };

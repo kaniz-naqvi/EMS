@@ -16,6 +16,8 @@ const CardWithEditDeleteIcon = ({
   primaryColor = "#0E6BA8",
   background,
   rounded,
+  grayText,
+  grayBg,
 }) => {
   const IconComponent = getIcon(icon);
   const TitleIcon = getIcon("title");
@@ -82,6 +84,8 @@ const CardWithEditDeleteIcon = ({
                   onClick={onEdit}
                   IconComponent={EditIcon}
                   primaryColor={primaryColor}
+                  background={grayBg}
+                  icon={grayText}
                 />
               )}
               {onDelete && DeleteIcon && (
@@ -89,6 +93,8 @@ const CardWithEditDeleteIcon = ({
                   onClick={onDelete}
                   IconComponent={DeleteIcon}
                   primaryColor={primaryColor}
+                  background={grayBg}
+                  icon={grayText}
                 />
               )}
             </div>
