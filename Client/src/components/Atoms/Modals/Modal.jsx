@@ -1,5 +1,5 @@
+import React, { useEffect } from "react";
 import { useTheme } from "@/styles/theme";
-import React from "react";
 import Button from "../Buttons/Buttons";
 import { Check, Plus } from "lucide-react";
 import { lightenColor } from "@/utils/helpers/colorsHelper";
