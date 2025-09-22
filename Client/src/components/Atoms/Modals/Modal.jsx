@@ -17,7 +17,19 @@ const Modal = ({
   const theme = useTheme();
 
   if (!isOpen) return null;
-  if (isOpen) document.body.style.overflowY = "hidden";
+
+  useEffect(() => {
+    if (isOpen) {
+      // Prevent scrolling when modal is open
+      document.body.style.overflow = "hidden";
+    } else {
+      // Restore scrolling when modal is closed
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   return (
     <div
