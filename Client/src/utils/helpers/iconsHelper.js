@@ -1,4 +1,12 @@
-import { Settings, User } from "lucide-react";
+import {
+  Settings,
+  User,
+  Pencil,
+  Trash,
+  Clock,
+  FileText,
+  Calendar,
+} from "lucide-react";
 import { Folders, House } from "phosphor-react";
 
 const iconList = {
@@ -6,6 +14,12 @@ const iconList = {
   settings: Settings,
   user: User,
   folder: Folders,
+  edit: Pencil,
+  delete: Trash,
+  title: FileText,
+  description: FileText,
+  date: Calendar,
+  duration: Clock,
 };
 
 export const getIcon = (icon) => {
