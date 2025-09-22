@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const TabComponent = ({
   tabs = [],
-  primaryColor,
+  primaryColor = "#0E6BA8",
   variant = "default", // 'default' | 'pill' | 'underline' | 'vertical'
   className = "",
 }) => {

@@ -2,30 +2,20 @@ import React from "react";
 import { useTheme } from "@/styles/theme";
 import TabComponent from "@/components/Atoms/Tabs/TabComponent";
 import OverviewTab from "@/components/Molecules/UserHome/OverviewTab";
-
-const SectionsComponent = () => (
-  <div>
-    <h2 className="text-xl font-bold mb-4">Other Sections</h2>
-    <p>This is where other sections will be displayed.</p>
-  </div>
-);
+import OtherSectionsTab from "@/components/Molecules/UserHome/OtherSectionsTab";
 
 const Home = () => {
   const theme = useTheme();
 
   const tabs = [
-    { name: "Overview", component: <OverviewTab /> },
-    { name: "Sections", component: <SectionsComponent /> },
+    { name: "Overview", component: <OverviewTab theme={theme} /> },
+    { name: "Sections", component: <OtherSectionsTab theme={theme} /> },
   ];
 
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
-      <TabComponent
-        tabs={tabs}
-        primaryColor={theme.primary}
-        variant="default"
-      />
+      <TabComponent tabs={tabs} variant="default" />
     </div>
   );
 };

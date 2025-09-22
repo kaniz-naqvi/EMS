@@ -12,7 +12,7 @@ const Dashboard = ({ navLinks }) => {
     >
       <div className="flex w-full h-full gap-2">
         <div className="w-28">
-          <NavBar navLinks={navLinks} />
+          <NavBar navLinks={navLinks} colors={colors} />
         </div>
 
         <div className="overflow-y-auto w-[80%] m-3">

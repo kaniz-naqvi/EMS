@@ -12,7 +12,7 @@ const CardWithEditDeleteIcon = ({
   onEdit,
   onDelete,
   showActions = true,
-  primaryColor,
+  primaryColor = "#0E6BA8",
   background,
   rounded,
 }) => {

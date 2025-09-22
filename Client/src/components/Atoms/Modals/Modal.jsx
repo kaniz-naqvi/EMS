@@ -1,6 +1,7 @@
 import { useTheme } from "@/styles/theme";
 import React from "react";
 import Button from "../Buttons/Buttons";
+import { Check, Plus } from "lucide-react";
 
 const Modal = ({
   isOpen,
@@ -44,7 +45,18 @@ const Modal = ({
               {cancelText}
             </Button>
             <Button variant="primary" color={theme.primary} onClick={onConfirm}>
-              {confirmText}
+              {confirmText === "Confirm" ? (
+                <>
+                  <Check /> {confirmText}
+                </>
+              ) : confirmText === "Add" ? (
+                <>
+                  <Plus />
+                  {confirmText}
+                </>
+              ) : (
+                { confirmText }
+              )}
             </Button>
           </div>
         )}

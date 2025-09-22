@@ -4,10 +4,9 @@ import React from "react";
 import "@/styles/nav.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const NavBar = ({ navLinks }) => {
+const NavBar = ({ navLinks, colors }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const colors = useTheme();
 
   return (
     <nav className="max-w-28 h-full">
