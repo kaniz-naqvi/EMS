@@ -51,7 +51,7 @@ const NotFoundPage = () => {
           <h2 className="text-6xl font-bold mb-2" style={{ color: theme.text }}>404</h2>
           <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text }}>Page Not Found</h3>
           <p style={{ color: theme.text }}>
-            Oops! The page you're looking for doesn't exist or has been moved.
+            Oops! The page you're looking for doesn't exist or has been move
           </p>
         </div>
 
