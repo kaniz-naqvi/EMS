@@ -11,49 +11,84 @@ that improve user experiences and solve real-world problems.`,
   // Theme preferences
   theme: {
     primaryColor: "#0E6BA8",
-    secondaryColor: "#CE8380",
     background: "#FAFAFA",
     textColor: "#222222",
   },
 
-  education: [
-    {
-      degree: "BS Computer Science",
-      institution: "Virtual University of Pakistan",
-      startYear: "2022",
-      endYear: "2026",
-      details:
-        "Focused on software engineering, algorithms, and modern web technologies.",
-    },
-    {
-      degree: "Intermediate in Pre-Engineering",
-      institution: "Govt. Science College",
-      startYear: "2020",
-      endYear: "2022",
-    },
-  ],
+  // ------------------- SECTIONS -------------------
+  sections: {
+    education: [
+      {
+        degree: "BS Computer Science",
+        institution: "Virtual University of Pakistan",
+        startYear: "2022",
+        endYear: "2026",
+        details:
+          "Focused on software engineering, algorithms, and modern web technologies.",
+      },
+      {
+        degree: "Intermediate in Pre-Engineering",
+        institution: "Govt. Science College",
+        startYear: "2020",
+        endYear: "2022",
+      },
+    ],
 
-  experience: [
-    {
-      role: "Frontend Developer",
-      company: "TechNova Solutions",
-      startDate: "Mar 2024",
-      endDate: "Present",
-      details:
-        "Working on React and Redux-based applications with Tailwind for styling. " +
-        "Collaborated with backend teams to integrate REST APIs and improve performance.",
-    },
-    {
-      role: "Intern Web Developer",
-      company: "CodeCrafters",
-      startDate: "Jan 2023",
-      endDate: "Feb 2024",
-      details:
-        "Assisted in building a company portfolio website using React and Express. " +
-        "Optimized UI components for better performance and accessibility.",
-    },
-  ],
+    certifications: [
+      {
+        name: "React Developer Certification",
+        issuer: "Meta",
+        year: "2023",
+        link: "https://coursera.org/cert/meta-react",
+      },
+      {
+        name: "Backend Development with Node.js",
+        issuer: "Udemy",
+        year: "2022",
+        link: "https://udemy.com/cert/nodejs",
+      },
+    ],
 
+    experience: [
+      {
+        role: "Frontend Developer",
+        company: "TechNova Solutions",
+        startDate: "Mar 2024",
+        endDate: "Present",
+        details:
+          "Working on React and Redux-based applications with Tailwind for styling. " +
+          "Collaborated with backend teams to integrate REST APIs and improve performance.",
+      },
+      {
+        role: "Intern Web Developer",
+        company: "CodeCrafters",
+        startDate: "Jan 2023",
+        endDate: "Feb 2024",
+        details:
+          "Assisted in building a company portfolio website using React and Express. " +
+          "Optimized UI components for better performance and accessibility.",
+      },
+    ],
+
+    skills: {
+      frontend: [
+        "React",
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Bootstrap",
+        "JavaScript",
+      ],
+      backend: ["Node.js", "Express", "PostgreSQL", "Prisma"],
+      tools: ["Git", "VS Code", "Postman", "Figma"],
+    },
+
+    // Optional sections (user can add/remove)
+    awards: [],
+    volunteering: [],
+    publications: [],
+  },
+
+  // ------------------- PROJECTS (separate) -------------------
   projects: [
     {
       name: "Amazon Clone",
@@ -78,18 +113,7 @@ that improve user experiences and solve real-world problems.`,
     },
   ],
 
-  skills: {
-    frontend: [
-      "React",
-      "Redux Toolkit",
-      "Tailwind CSS",
-      "Bootstrap",
-      "JavaScript",
-    ],
-    backend: ["Node.js", "Express", "PostgreSQL", "Prisma"],
-    tools: ["Git", "VS Code", "Postman", "Figma"],
-  },
-
+  // ------------------- SOCIAL LINKS -------------------
   socials: {
     github: "https://github.com/johndoe",
     linkedin: "https://linkedin.com/in/johndoe",

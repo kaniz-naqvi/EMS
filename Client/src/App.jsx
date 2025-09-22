@@ -1,37 +1,30 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import { allowedRoutes } from "./utils/routes/routes";
-import { LAYOUT_DASHBOARD } from "./utils/routes/route-paths";
+import { LAYOUT_DASHBOARD, LAYOUT_AUTH } from "./utils/routes/route-paths";
 import Loader from "./components/Atoms/Loader/Loader";
+import ProtectedRoute from "./utils/routes/ProtectedRoute";
 
 export default function App() {
   const routes = allowedRoutes();
   const dashboardLinks = routes.filter((r) => r.layout === LAYOUT_DASHBOARD);
   const navLinks = routes.filter((r) => r.showInNavLinks);
-  const [appLoading, setAppLoading] = useState(true);
-
-  useEffect(() => {
-    const handleLoad = () => {
-      setAppLoading(false);
-    };
-    if (document.readyState === "complete") {
-      setAppLoading(false);
-    } else {
-      // Wait for window to load
-      window.addEventListener("load", handleLoad);
-    }
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    };
-  }, []);
-
-  if (appLoading) return <Loader />;
+  const authLinks = routes.filter((r) => r.layout === LAYOUT_AUTH);
+  const isAuth = true; // Replace with real
 
   return (
     <Routes>
-      <Route path="/" element={<Dashboard navLinks={navLinks} />}>
-        {dashboardLinks?.map((r) => {
+      {/* Dashboard (protected) */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute isAuth={isAuth}>
+            <Dashboard navLinks={navLinks} />
+          </ProtectedRoute>
+        }
+      >
+        {dashboardLinks.map((r) => {
           const Component = r.view;
           return (
             <Route
@@ -46,6 +39,27 @@ export default function App() {
           );
         })}
       </Route>
+
+      {/* Auth */}
+      <Route path="/auth">
+        {authLinks.map((r) => {
+          const Component = r.view;
+          return (
+            <Route
+              key={r.path}
+              path={r.path}
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Component />
+                </Suspense>
+              }
+            />
+          );
+        })}
+      </Route>
+
+      {/* Catch-all */}
+      <Route path="*" element={<div>404 - Not Found</div>} />
     </Routes>
   );
 }

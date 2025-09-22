@@ -1,14 +1,7 @@
 import React from "react";
 import { useTheme } from "@/styles/theme";
 import TabComponent from "@/components/Atoms/Tabs/TabComponent";
-
-// Simple placeholder components
-const OverviewComponent = () => (
-  <div>
-    <h2 className="text-xl font-bold mb-4">Overview</h2>
-    <p>Welcome to your dashboard overview section.</p>
-  </div>
-);
+import OverviewTab from "@/components/Molecules/UserHome/OverviewTab";
 
 const SectionsComponent = () => (
   <div>
@@ -21,7 +14,7 @@ const Home = () => {
   const theme = useTheme();
 
   const tabs = [
-    { name: "Overview", component: <OverviewComponent /> },
+    { name: "Overview", component: <OverviewTab /> },
     { name: "Sections", component: <SectionsComponent /> },
   ];
 
