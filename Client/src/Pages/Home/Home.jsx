@@ -5,7 +5,7 @@ import OverviewTab from "@/components/Molecules/UserHome/OverviewTab";
 
 const SectionsComponent = () => (
   <div>
-    <h2 className="text-xl font-bold mb-4">Other Sections</h2>
+    <h2 className="text-xl font-bold mb-4 bg-primary">Other Sections</h2>
     <p>This is where other sections will be displayed.</p>
   </div>
 );
