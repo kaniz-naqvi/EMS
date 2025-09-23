@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "@/components/Atoms/Modals/Modal";
 import ConfirmationModal from "@/components/Atoms/Modals/ConfirmationModal";
 import InputComponent from "@/components/Atoms/Shared/Input";
+import Textarea from "@/components/Atoms/Shared/Textarea";
 
 export const AddSectionModal = ({
   isOpen,
@@ -19,7 +20,7 @@ export const AddSectionModal = ({
   });
 
   // Initialize form data when modal opens or editData changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       setFormData({
         title: editData?.title || "",
@@ -71,13 +72,13 @@ export const AddSectionModal = ({
           backgroundColor={theme?.background}
           placeholder="Enter title"
         />
-        <InputComponent
+        {/* <InputComponent
           label="Description"
           value={formData.description}
           onChange={(e) => handleInputChange("description", e.target.value)}
           backgroundColor={theme?.background}
           placeholder="Enter description"
-        />
+        /> */}
         <InputComponent
           label="Institution/Organization"
           value={formData.institution}
@@ -91,6 +92,15 @@ export const AddSectionModal = ({
           onChange={(e) => handleInputChange("duration", e.target.value)}
           backgroundColor={theme?.background}
           placeholder="e.g., 2020 - 2023"
+        />
+        <Textarea
+          label="Description"
+          value={formData.description}
+          onChange={(e) => handleInputChange("description", e.target.value)}
+          placeholder="Enter description..."
+          bgColor={theme?.background || "white"}
+          textColor="black"
+          borderColor="gray"
         />
       </div>
     </Modal>

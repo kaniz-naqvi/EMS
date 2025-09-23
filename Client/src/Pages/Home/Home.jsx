@@ -4,6 +4,7 @@ import TabComponent from "@/components/Atoms/Tabs/TabComponent";
 import OverviewTab from "@/components/Molecules/UserHome/OverviewTab";
 import SectionsTab from "@/components/Molecules/UserHome/SectionsTab";
 import userConfig from "@/hooks/userConfig";
+import { H1 } from "@/components/Atoms/Shared/headings";
 
 const Home = () => {
   const theme = useTheme();
@@ -25,8 +26,8 @@ const Home = () => {
   ];
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+    <div className="lg:p-6 p-1">
+      <H1>Dashboard</H1>
       <TabComponent tabs={tabs} variant="default" grayBg={theme?.grayBg} />
     </div>
   );

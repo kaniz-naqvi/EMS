@@ -8,7 +8,7 @@ import {
   Calendar,
   Plus,
 } from "lucide-react";
-import { Folders, House } from "phosphor-react";
+import { Folders, House, DiamondsFour } from "phosphor-react";
 
 const iconList = {
   home: House,
@@ -22,6 +22,7 @@ const iconList = {
   date: Calendar,
   duration: Clock,
   plus: Plus,
+  grid: DiamondsFour,
 };
 
 export const getIcon = (icon) => {

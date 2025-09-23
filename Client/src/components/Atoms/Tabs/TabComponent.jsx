@@ -11,12 +11,13 @@ const TabComponent = ({
   const [activeTab, setActiveTab] = useState(0);
 
   const getTabClasses = (index) => {
-    const baseClasses = "px-4 py-2 font-medium transition-all duration-200";
+    const baseClasses =
+      "px-3 lg:px-4 py-2 text-sm lg:text-base font-medium transition-all duration-200 whitespace-nowrap";
     const isActive = index === activeTab;
 
     switch (variant) {
       case "pill":
-        return `${baseClasses} mx-2 rounded-full ${
+        return `${baseClasses} mx-1 lg:mx-2 rounded-full ${
           isActive ? "" : "hover:bg-[rgba(0,0,0,0.1)]"
         }`;
 
@@ -61,21 +62,21 @@ const TabComponent = ({
   const containerClasses = () => {
     switch (variant) {
       case "vertical":
-        return "flex";
+        return "flex flex-col lg:flex-row";
       case "underline":
       case "default":
-        return "border-b flex";
+        return "border-b flex overflow-x-auto lg:overflow-visible";
       default:
-        return "";
+        return "flex overflow-x-auto lg:overflow-visible";
     }
   };
 
   const contentContainerClasses = () => {
     switch (variant) {
       case "vertical":
-        return "flex-1 p-6";
+        return "flex-1 p-4 lg:p-6";
       default:
-        return "p-6";
+        return "p-4 lg:p-6";
     }
   };
 
@@ -105,9 +106,19 @@ const TabComponent = ({
         style={{ borderColor: grayBg }}
       >
         {variant === "vertical" ? (
-          <div className="w-48 border-r" style={{ borderColor: primaryColor }}>
-            {renderTabs()}
-          </div>
+          <>
+            {/* Mobile: horizontal scroll */}
+            <div className="flex gap-2 w-full overflow-x-auto lg:hidden">
+              {renderTabs()}
+            </div>
+            {/* Desktop: sidebar */}
+            <div
+              className="hidden lg:flex lg:w-48 lg:flex-col lg:border-r"
+              style={{ borderColor: primaryColor }}
+            >
+              {renderTabs()}
+            </div>
+          </>
         ) : (
           <div className="flex gap-2 w-full">{renderTabs()}</div>
         )}

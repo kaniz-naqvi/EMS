@@ -5,17 +5,25 @@ import { Outlet } from "react-router-dom";
 
 const Dashboard = ({ navLinks }) => {
   const colors = useTheme();
+
   return (
     <main
       style={{ background: colors.background, color: colors.text }}
-      className={`min-h-screen w-full`}
+      className="min-h-screen w-full"
     >
-      <div className="flex w-full gap-2">
-        <div className="w-28 flex-shrink-0 fixed h-full">
-          <NavBar navLinks={navLinks} colors={colors} />
-        </div>
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:flex fixed h-full w-28">
+        <NavBar navLinks={navLinks} colors={colors} variant="sidebar" />
+      </div>
 
-        <div className="flex-grow ml-32 mt-3 mb-3">
+      {/* Mobile Bottom Bar */}
+      <div className="lg:hidden">
+        <NavBar navLinks={navLinks} colors={colors} variant="bottombar" />
+      </div>
+
+      {/* Main Content Area */}
+      <div className="lg:ml-28 pb-16 lg:pb-0">
+        <div className="lg:p-4 p-1">
           <Outlet />
         </div>
       </div>

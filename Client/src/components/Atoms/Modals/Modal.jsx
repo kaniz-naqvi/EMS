@@ -16,14 +16,10 @@ const Modal = ({
 }) => {
   const theme = useTheme();
 
-  if (!isOpen) return null;
-
   useEffect(() => {
     if (isOpen) {
-      // Prevent scrolling when modal is open
       document.body.style.overflow = "hidden";
     } else {
-      // Restore scrolling when modal is closed
       document.body.style.overflow = "unset";
     }
     return () => {
@@ -33,7 +29,9 @@ const Modal = ({
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center z-50"
+      className={`fixed inset-0 flex items-center justify-center z-50 ${
+        !isOpen ? "hidden" : ""
+      }`}
       onClick={onClose}
       style={{ background: lightenColor("#000000", 70) }}
     >
@@ -66,8 +64,7 @@ const Modal = ({
                 </>
               ) : confirmText === "Add" ? (
                 <>
-                  <Plus />
-                  {confirmText}
+                  <Plus /> {confirmText}
                 </>
               ) : (
                 confirmText

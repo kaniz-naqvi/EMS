@@ -30,13 +30,15 @@ const CardWithEditDeleteIcon = ({
 
   return (
     <Card background={background} rounded={rounded}>
-      <div className="p-6">
-        <div className="flex justify-between items-start">
-          <div className="space-y-3">
+      <div className="p-4 sm:p-5 lg:p-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+          <div className="space-y-2 sm:space-y-3">
             {title && (
               <div className="flex items-center space-x-2">
-                {TitleIcon && <TitleIcon size={16} color={primaryColor} />}
-                <h3 className="text-lg font-semibold">{title}</h3>
+                {TitleIcon && <TitleIcon size={18} color={primaryColor} />}
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold">
+                  {title}
+                </h3>
               </div>
             )}
 
@@ -49,21 +51,21 @@ const CardWithEditDeleteIcon = ({
                     className="mt-1"
                   />
                 )}
-                <p className="text-sm opacity-75">{description}</p>
+                <p className="text-sm sm:text-base opacity-75">{description}</p>
               </div>
             )}
 
             {name && (
               <div className="flex items-center space-x-2">
                 {NameIcon && <NameIcon size={16} color={primaryColor} />}
-                <p className="text-sm">{name}</p>
+                <p className="text-sm sm:text-base">{name}</p>
               </div>
             )}
 
             {date && (
               <div className="flex items-center space-x-2">
-                {DateIcon && <DateIcon size={16} color={primaryColor} />}
-                <p className="text-xs opacity-60">{date}</p>
+                {DateIcon && <DateIcon size={14} color={primaryColor} />}
+                <p className="text-xs sm:text-sm opacity-60">{date}</p>
               </div>
             )}
 
@@ -72,13 +74,13 @@ const CardWithEditDeleteIcon = ({
                 {DurationIcon && (
                   <DurationIcon size={16} color={primaryColor} />
                 )}
-                <p className="text-sm">{duration}</p>
+                <p className="text-sm sm:text-base">{duration}</p>
               </div>
             )}
           </div>
 
           {showActions && (onEdit || onDelete) && (
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 self-end sm:self-auto">
               {onEdit && EditIcon && (
                 <IconContainerButton
                   onClick={onEdit}
