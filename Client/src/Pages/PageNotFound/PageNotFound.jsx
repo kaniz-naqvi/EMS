@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../styles/theme";
-import { H1, H2, H3 } from "@/components/Atoms/Shared/headings";
+import { H1, H2, H3, SubHeading } from "@/components/Atoms/Shared/headings";
 import Button from "@/components/Atoms/Buttons/Buttons";
 import { getIcon } from "@/utils/helpers/iconsHelper";
 
@@ -31,9 +31,9 @@ const NotFoundPage = () => {
             </h1>
           </div>
 
-          <p className="mt-2" style={{ color: theme.text }}>
-            Portfolio Generator Platform
-          </p>
+          <SubHeading className="block mb-2 lg:mb-4">
+            portfolio generator platform
+          </SubHeading>
         </div>
 
         {/* 404 */}

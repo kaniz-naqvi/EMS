@@ -36,4 +36,13 @@ const H4 = ({ children, className = "", ...props }) => (
   </h4>
 );
 
-export { H1, H2, H3, H4 };
+const SubHeading = ({ children, className = "", ...props }) => (
+  <strong
+    className={`text-sm lg:text-base uppercase tracking-wider text-gray-600 font-semibold ${className}`}
+    {...props}
+  >
+    {children}
+  </strong>
+);
+
+export { H1, H2, H3, H4, SubHeading };

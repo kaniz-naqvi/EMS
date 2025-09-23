@@ -7,6 +7,14 @@ import {
   FileText,
   Calendar,
   Plus,
+  Bell,
+  Search,
+  LogOut,
+  LayoutDashboard,
+  BarChart,
+  Upload,
+  Download,
+  Building2,
 } from "lucide-react";
 import {
   FoldersIcon,
@@ -19,7 +27,8 @@ import {
 const iconList = {
   home: HouseIcon,
   settings: Settings,
-  user: User,
+  company: Building2,
+  profile: User,
   folder: FoldersIcon,
   edit: Pencil,
   delete: Trash,
@@ -31,6 +40,13 @@ const iconList = {
   grid: DiamondsFourIcon,
   sadEmoji: SmileySadIcon,
   broken: ImageBrokenIcon,
+  dashboard: LayoutDashboard,
+  search: Search,
+  logout: LogOut,
+  notification: Bell,
+  analytics: BarChart,
+  upload: Upload,
+  download: Download,
 };
 
 export const getIcon = (icon) => {
