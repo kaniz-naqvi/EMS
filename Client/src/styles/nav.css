@@ -16,3 +16,19 @@
 .nav-link:hover {
   background: var(--white-transparent);
 }
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .nav-link {
+    height: 80px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 1023px) {
+  .nav-link {
+    width: fit-content;
+    height: auto;
+    padding: 8px 4px;
+  }
+}

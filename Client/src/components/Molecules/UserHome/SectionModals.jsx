@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "@/components/Atoms/Modals/Modal";
 import ConfirmationModal from "@/components/Atoms/Modals/ConfirmationModal";
 import InputComponent from "@/components/Atoms/Shared/Input";
@@ -19,7 +19,7 @@ export const AddSectionModal = ({
   });
 
   // Initialize form data when modal opens or editData changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       setFormData({
         title: editData?.title || "",

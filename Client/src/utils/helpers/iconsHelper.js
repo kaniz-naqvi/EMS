@@ -7,14 +7,29 @@ import {
   FileText,
   Calendar,
   Plus,
+  Bell,
+  Search,
+  LogOut,
+  LayoutDashboard,
+  BarChart,
+  Upload,
+  Download,
+  Building2,
 } from "lucide-react";
-import { Folders, House } from "phosphor-react";
+import {
+  FoldersIcon,
+  HouseIcon,
+  DiamondsFourIcon,
+  SmileySadIcon,
+  ImageBrokenIcon,
+} from "@phosphor-icons/react";
 
 const iconList = {
-  home: House,
+  home: HouseIcon,
   settings: Settings,
-  user: User,
-  folder: Folders,
+  company: Building2,
+  profile: User,
+  folder: FoldersIcon,
   edit: Pencil,
   delete: Trash,
   title: FileText,
@@ -22,9 +37,20 @@ const iconList = {
   date: Calendar,
   duration: Clock,
   plus: Plus,
+  grid: DiamondsFourIcon,
+  sadEmoji: SmileySadIcon,
+  broken: ImageBrokenIcon,
+  dashboard: LayoutDashboard,
+  search: Search,
+  logout: LogOut,
+  notification: Bell,
+  analytics: BarChart,
+  upload: Upload,
+  download: Download,
 };
 
 export const getIcon = (icon) => {
   const IconFromList = iconList[icon];
+  if (!IconFromList) return iconList["broken"];
   return icon ? IconFromList : null;
 };
