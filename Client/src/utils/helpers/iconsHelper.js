@@ -8,13 +8,19 @@ import {
   Calendar,
   Plus,
 } from "lucide-react";
-import { Folders, House, DiamondsFour } from "phosphor-react";
+import {
+  FoldersIcon,
+  HouseIcon,
+  DiamondsFourIcon,
+  SmileySadIcon,
+  ImageBrokenIcon,
+} from "@phosphor-icons/react";
 
 const iconList = {
-  home: House,
+  home: HouseIcon,
   settings: Settings,
   user: User,
-  folder: Folders,
+  folder: FoldersIcon,
   edit: Pencil,
   delete: Trash,
   title: FileText,
@@ -22,10 +28,13 @@ const iconList = {
   date: Calendar,
   duration: Clock,
   plus: Plus,
-  grid: DiamondsFour,
+  grid: DiamondsFourIcon,
+  sadEmoji: SmileySadIcon,
+  broken: ImageBrokenIcon,
 };
 
 export const getIcon = (icon) => {
   const IconFromList = iconList[icon];
+  if (!IconFromList) return iconList["broken"];
   return icon ? IconFromList : null;
 };

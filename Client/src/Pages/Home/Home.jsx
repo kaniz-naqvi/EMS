@@ -2,13 +2,9 @@ import React from "react";
 import { useTheme } from "@/styles/theme";
 import TabComponent from "@/components/Atoms/Tabs/TabComponent";
 import OverviewTab from "@/components/Molecules/UserHome/OverviewTab";
-
-const SectionsComponent = () => (
-  <div>
-    <h2 className="text-xl font-bold mb-4">Other Sections</h2>
-    <p>This is where other sections will be displayed.</p>
-  </div>
-);
+import SectionsTab from "@/components/Molecules/UserHome/SectionsTab";
+import userConfig from "@/hooks/userConfig";
+import { H1 } from "@/components/Atoms/Shared/headings";
 
 const Home = () => {
   const theme = useTheme();
