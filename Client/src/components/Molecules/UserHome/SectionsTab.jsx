@@ -30,7 +30,6 @@ const SectionsTab = ({ theme, otherSections }) => {
   };
 
   const handleOpenEditModal = (sectionKey, item, index) => {
-    console.log("Editing item:", item);
     setActiveSection(sectionKey);
     setActiveItem(index);
     setEditData(item);
@@ -85,17 +84,27 @@ const SectionsTab = ({ theme, otherSections }) => {
       />
 
       <Card background={background}>
-        <div className="flex justify-between w-full items-center mb-4">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4 gap-3">
           <H3>More Sections</H3>
-          <Button color={primary} onClick={() => handleOpenAddModal(null)}>
+          <Button
+            color={primary}
+            className="w-full lg:w-auto"
+            onClick={() => handleOpenAddModal(null)}
+          >
             <Plus /> Add Section
           </Button>
         </div>
 
+        {/* Sections */}
         <div className="space-y-6">
           {Object.entries(otherSections).map(([sectionKey, sectionItems]) => (
             <div key={sectionKey}>
-              <div className="flex justify-between items-center mb-2">
+              <div
+                className="flex flex-row mb-2 gap-2 
+                items-center  
+             justify-between"
+              >
                 <H3 className="capitalize">{sectionKey}</H3>
                 <IconContainerButton
                   onClick={() => handleOpenAddModal(sectionKey)}

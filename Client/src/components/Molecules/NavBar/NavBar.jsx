@@ -1,13 +1,17 @@
 import Card from "@/components/Atoms/Card/Card";
-import { useTheme } from "@/styles/theme";
 import React from "react";
-import "@/styles/nav.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import "@/styles/nav.css";
 
-const NavBar = ({ navLinks, colors }) => {
+const NavBar = ({ navLinks, colors, variant = "sidebar" }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  if (variant === "bottombar") {
+    return null;
+  }
+
+  // Sidebar version
   return (
     <nav className="max-w-28 h-full">
       <Card

@@ -25,6 +25,15 @@ export const allRoutes = [
     showInNavLinks: true,
     showInTopHeader: false,
   },
+  {
+    path: urls.Templates,
+    name: URL_Name.templates,
+    view: Projects,
+    layout: LAYOUT_DASHBOARD,
+    icon: getIcon("grid"),
+    showInNavLinks: true,
+    showInTopHeader: false,
+  },
 ];
 export const allowedRoutes = () => {
   return allRoutes;
