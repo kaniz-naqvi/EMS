@@ -1,42 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useTheme } from "@/styles/theme"; // 👈 import your theme hook
+import { useTheme } from "@/styles/theme";
+import InputComponent from "@/components/Atoms/Shared/Input"; // 👈 reuse input
+import LinkText from "@/components/Atoms/Shared/LinkText";   // theme link
 
 const FormFooter = ({
+  showForgot = true, // 👈 control: show/hide forgot password link
   checkboxName = "remember",
-  checkboxLabel = "Remember me",
+  checkboxLabel = "Keep me signed in",
   defaultChecked = false,
-  linkTo = "/",
+  linkTo = "/forgot-password",
   linkText = "Forgot password?",
+  type = "dashboard",
 }) => {
-  const theme = useTheme("dashboard"); // 👈 get colors from theme
+  const theme = useTheme(type);
 
   return (
     <div
       className="flex items-center justify-between mb-4"
       style={{ color: theme.text }}
     >
-      <label className="flex items-center gap-2 text-sm">
-        <input
-          type="checkbox"
-          name={checkboxName}
-          className="w-4 h-4 rounded border focus:ring-2 focus:ring-offset-0"
-          defaultChecked={defaultChecked}
-          style={{
-            borderColor: theme.greyText,
-            accentColor: theme.primary, // checkbox tick color
-          }}
-        />
-        <span>{checkboxLabel}</span>
-      </label>
+      {/* ✅ Checkbox via InputComponent */}
+      <InputComponent
+        type="checkbox"
+        name={checkboxName}
+        defaultChecked={defaultChecked}
+        checkboxLabel={checkboxLabel}
+      />
 
-      <Link
-        to={linkTo}
-        className="text-sm hover:underline"
-        style={{ color: theme.primary }}
-      >
-        {linkText}
-      </Link>
+      {/* ✅ Conditionally render forgot password link */}
+      {showForgot && (
+        <LinkText to={linkTo} type={type} className="text-sm">
+          {linkText}
+        </LinkText>
+      )}
     </div>
   );
 };

@@ -5,10 +5,6 @@ import InputComponent from "@/components/Atoms/Shared/Input"; // custom input
 import Card from "@/components/Atoms/Card/Card";
 import FormFooter from "@/components/Atoms/Shared/checkout";
 const Login = () => {
-  const onFinish = (values) => {
-    console.log("Login form submitted:", values);
-  };
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-50">
       {/* <H1 className="text-center mt-5 mb-6">WellCome Back</H1> */}
@@ -33,7 +29,6 @@ const Login = () => {
             placeholder="Your password"
             required
             className="my-3"
-
           />
 
           <FormFooter
