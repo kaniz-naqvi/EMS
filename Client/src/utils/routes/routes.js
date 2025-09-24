@@ -34,7 +34,17 @@ export const allRoutes = [
     showInNavLinks: true,
     showInTopHeader: false,
   },
+  {
+    path: urls.Links,
+    name: URL_Name.links,
+    view: Projects,
+    layout: LAYOUT_DASHBOARD,
+    icon: getIcon("link"),
+    showInNavLinks: true,
+    showInTopHeader: false,
+  },
 ];
+
 export const allowedRoutes = () => {
   return allRoutes;
 };

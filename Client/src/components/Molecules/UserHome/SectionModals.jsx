@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "@/components/Atoms/Modals/Modal";
 import ConfirmationModal from "@/components/Atoms/Modals/ConfirmationModal";
 import InputComponent from "@/components/Atoms/Shared/Input";
+import Textarea from "@/components/Atoms/Shared/Textarea";
 
 export const AddSectionModal = ({
   isOpen,
@@ -68,29 +69,27 @@ export const AddSectionModal = ({
           required
           value={formData.title}
           onChange={(e) => handleInputChange("title", e.target.value)}
-          backgroundColor={theme?.background}
           placeholder="Enter title"
-        />
-        <InputComponent
-          label="Description"
-          value={formData.description}
-          onChange={(e) => handleInputChange("description", e.target.value)}
-          backgroundColor={theme?.background}
-          placeholder="Enter description"
         />
         <InputComponent
           label="Institution/Organization"
           value={formData.institution}
           onChange={(e) => handleInputChange("institution", e.target.value)}
-          backgroundColor={theme?.background}
           placeholder="Enter institution"
         />
         <InputComponent
           label="Duration"
           value={formData.duration}
           onChange={(e) => handleInputChange("duration", e.target.value)}
-          backgroundColor={theme?.background}
           placeholder="e.g., 2020 - 2023"
+        />
+        <Textarea
+          label="Description"
+          value={formData.description}
+          onChange={(e) => handleInputChange("description", e.target.value)}
+          placeholder="Enter description..."
+          textColor="black"
+          borderColor="gray"
         />
       </div>
     </Modal>

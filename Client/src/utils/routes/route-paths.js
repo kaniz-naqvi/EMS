@@ -5,4 +5,5 @@ export const urls = {
   Home: "home",
   Projects: "projects",
   Templates: "templates",
+  Links: "social-links",
 };

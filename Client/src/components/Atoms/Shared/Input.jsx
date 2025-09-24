@@ -5,7 +5,6 @@ import { getIcon } from "@/utils/helpers/iconsHelper";
 const InputComponent = ({
   type = "text",
   icon: iconName,
-  backgroundColor,
   className = "",
   label,
   required = false,
@@ -20,16 +19,13 @@ const InputComponent = ({
     <div className="w-full">
       {label && (
         <label className="block text-sm font-medium text-gray-400 mb-1">
-          {label} {required && <span className="text-red-500">*</span>}
+          {label} {required && "*"}
         </label>
       )}
 
       <div
-        className={`relative flex items-center rounded-xl shadow-sm border transition-all focus-within:ring-2 ${className}`}
-        style={{
-          backgroundColor,
-          borderColor: "#9ca3af",
-        }}
+        className={`relative flex items-center rounded-xl shadow-sm border transition-all focus-within:ring-2 bg-transparent ${className}`}
+        style={{ borderColor: "#9ca3af" }}
       >
         {Icon && (
           <div className="absolute left-3 text-gray-500 hover:text-gray-700 transition-colors">
@@ -42,9 +38,7 @@ const InputComponent = ({
           className={`w-full py-3 px-4 text-sm rounded-md focus:outline-none bg-transparent transition-all ${
             Icon ? "pl-10" : "pl-4"
           } ${type === "password" ? "pr-12" : "pr-4"}`}
-          style={{
-            borderColor: "#9ca3af",
-          }}
+          style={{ borderColor: "#9ca3af" }}
           {...props}
         />
 
