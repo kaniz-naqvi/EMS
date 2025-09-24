@@ -15,6 +15,7 @@ import {
   Upload,
   Download,
   Building2,
+  Lock,
 } from "lucide-react";
 import {
   FoldersIcon,
@@ -47,6 +48,7 @@ const iconList = {
   analytics: BarChart,
   upload: Upload,
   download: Download,
+  lock: Lock,
 };
 
 export const getIcon = (icon) => {
