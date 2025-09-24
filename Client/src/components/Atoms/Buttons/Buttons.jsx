@@ -3,7 +3,7 @@ import React from "react";
 const Button = ({
   children,
   variant = "primary", // 'primary' | 'secondary' | 'ghost'
-  color, // Accept color from parent
+  color="#0E6BA8", // Accept color from parent
   onClick,
   disabled = false,
   className = "",
